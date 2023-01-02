@@ -3,4 +3,81 @@ Q) What is Emmet?
 -> By type shortcuts that are then expanded into full pieces of code.
 -> Refer Documentation : https://docs.emmet.io/abbreviations/
 
-Q) 
+Q) Difference between a Library and Framework?
+Library :
+-> By using libraries we can control the flow of the applicationn and call the library.
+-> Less code is required to build libraries, which leads to faster loading times amd better performance.
+-> Good code quality, reusability, and control, enhanced speed and performance of the program etc.
+-> Examples : JQuery, React JS etc.
+Framework :
+-> When we use framework the control is inverted, i.e the framework controls the flow and calls your code.
+-> Devloping a framework requires a lot of coding, which increases loading times and decreases the performance.
+-> Faster Programming, support from the community, great support for MVC, pattern etc..
+-> Examples : Spring, Angular JS, Vue JS, Node JS etc.
+
+Q) What is CDN? Why do we use it?
+-> A CDN is a content delivery network.
+-> It is a system of distributed servers that deliver web content to users based on their geographical location.
+-> CDNs are used to improve website performance by reducing latency and providing more reliable connection.
+-> To use the CDNs in React JS, we should include the CDN in our index.html. 
+-> When a user requests a piece of content, the CDN can speed up the delivery of content to users.
+
+Q) Why React is known as React?
+-> React is named as React because of its abililty to react to changes in data.
+-> When the data in a React component changes, React automatically re-render the component so that it reflects the new data.
+
+Q) What is crossorigin in script tag?
+-> The crossorigin attribute specifies that the script element support CORS.
+-> CORS stands for Cross Origin Resource Sharing.
+-> CORS is a standard mechanism to retrieve files from the third party domain or server.
+-> If specified, the script file request will be sent with or without credentials.
+-> This enables a better error handling experience in React 16 or later.
+
+Q) What is diference between React and ReactDOM?
+-> React and ReactDOM were recently split into two different libraries.
+-> Prior to v0.14 all the React DOM functionality was part of react.
+-> React DOM is the glue between React and DOM. Often, you will only use it for one thing: mounting with ReactDOM.render()
+-> The reason React and React DOM were split into two libraries was due to arrival of React Native.
+-> React contains functionality utilized in web and mobile apps. React DOM functionality is only used in web apps.
+
+Q) What is difference between react.development.js and react.production.js files via CDN?
+-> Development mode includes useful warnings and gives you access to the tools take make developement and debugging easier.
+-> Production minfies your code and better represents the performance of your app will have on end user's end.
+
+Q) What is async and defer?
+-> Async and defer are the boolean attributes which are used along with script tag to load the external scripts efficiently into our webpage.
+-> When you load a webpage there are two major things happening in the browser.
+    1) The HTML Parsing.
+    2) The loading of the scripts.
+    
+-> The loading of the scripts contains two parts.
+    1) Fetching the script from the network.
+    2) Acutually executing the script line by line.
+
+-> Case 1: By normally using script tag -
+           <script src = ""></script>
+           In the normal scenario, suppose your browser is loading a webpage and parsing the HTML line by line and suddenly encounters the script tag.
+           At that time brower pause the parsing of HTML and sees the script tag and then fetches the script from the network and gets into the browser
+           and runs it then and there. And after the script is fully executed the HTML parsing will be continued again.
+
+           In actual the javascript is blocking the rendering of HTML code because we are waiting for script code to execute fully, which is not the 
+           good case.
+    
+-> Case 2: By using async attribute in a script tag -
+            <script async src = ""></script>
+            In case of async, meanwhile our HTML parsing is going on, any of our script with async attribute fetched from the network asynchronously
+            along with our HTML parsing. As soon as the scripts are fetched and available on browser, the HTML parsing stops and scripts are executed
+            then and there. And once the script is executed the HTML parsing will be continued again.
+
+            In this case also our code is blocked for a while.
+
+-> Case 3: By using defer attribute in a script tag -
+            <script defer src = ""></script>
+            In case of defer attributes, HTML parsing is going on and script are also fetched from the network parallel, and when HTML parsing is 
+            completed then our scripts which were fetched earlier will be executed now.
+
+            Note: async attribute doesnot gurantee the order of execution of the scripts. But defer does.
+                  It means if we are putting async attributes in multiple scripts which are dependent on each other, then async attribute 
+                  doesnot gurantee that these scripts will be executed in a particular order. And that may break our code, so in this case
+                  defer is preferable.
+                  In case if we have to load some external scripts, which are independent of our code, in this case we can use async.
