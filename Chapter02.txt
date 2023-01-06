@@ -1,0 +1,103 @@
+Q) What is NPM?
+->  npm is a package manager for javascript programming language which is used to install and manage packages
+    that are published on the npm registry. npm is free.
+-> Dependencies are aslo defined in package.json.
+
+Q) What is Parcel/webpack? Why do we need them?
+->  Parcel and webpack are bundlers, where bundlers are tools that take our code and its Dependencies, package 
+    them together into a single file or few files, and can be run on a browser or a web server.
+->  They can be used to transform code written in one language(such as TypeScript or JSX) into regular JS that
+    can be run in a browser, or to optimize and minimize the bundled code to improve performance.
+
+Q) What is parcel-cache?
+->  When we want to bundle our app with parcel a folder called .parcel-cache will be generated. Parcel uses this
+    for perform Hot Module Replacement(HMR).
+->  Parcel caches everthing it builds to disk. If you restart the dev server. Parcel will only rebuild files that 
+    have changed since last time it ran.
+->  Parcel automatically tracks all of files, configuration, plugins and dev Dependencies that are involved in your
+    build.
+->  For example : if you change a configuration file, all the source files that rely on that configuration will be
+    rebuilt.
+->  Add this folder to .gitignore folder so that it is not committed in your repo.
+
+Q) What is npx?
+->  npx is a command-line tool that is included with npm that allows us to execute Node.js packages. It is designed
+    to be an easy and convenient way to run packages without having them to install them globally on your system.
+->  Execute parcel using npx for the entry point index.html [npx parcel index.html]
+->  [npm install <dependency name> g]
+
+Q) What is difference between dependencies and devDependencies?
+->  The package.json file is a manifest file for our project. It contains metadata information on our project such as
+    project name, description, author, keywords and so on. 
+->  devDependencies are modules which are required during developement, while dependencies are modules  which are also 
+    required at runtime or which required globally. To save a dependency as a devDependency on installation we need to 
+    do an npm install --save-dev, instead of just an npm install --save.
+
+Q) What is Tree Shaking?
+->  In production builds, Parcel statically analyzes the imports and exports of each module, and removes everything that
+    isn't used. This is called "tree shaking" or "dead code elimination". Tree shaking is supported for both static and 
+    dynamic import(), commonJS and ES modules, and even across languages with CSS modules.
+
+Q) What is Hot Module Replacement?
+->  As we make changes to your code, Parcel automatically rebuilds the changed files and updates your app in the browser.
+    By default, Parcel fully reloads the page, but in some cases it may perform Hot Module Replacement(HMR). HMR improves
+    the developement experience by updating modules in the browser at runtime without needing a page refresh. This means
+    that application state can be retained as you change small things in code.
+->  CSS changes are automatically applied via HMR with no page reload necessary. This also true when using a framework with 
+    HMR support built in, like React (via Fast Refresh) and Vue.
+
+Q) List down your favourite 5 superpowers of Parcel and describe any 3 of them in your own words.
+->  Dev Server: By default when we open our server it opens at port: 1234. If port 1234 is already in use, then a fallback
+    port will be used. After Parcel starts, the location where the deve server is starting is listening will be printed to 
+    the terminal. We can even open in our favourite web browser.
+->  Hot Reloading: Whenever we make changes to our code, parcel automatically detects it and does the changes in browser. 
+    Parcel has HMR which improves the developement experience in the browser by updating modules in the browser at runtime 
+    without needing a whole page refresh.
+->  HTTPS: Sometimes we need to test code which are only possible in HTPPS like authentication cookies etc. Parcel provides
+    us HTTPS support.
+->  Bundling and caching while developement.
+->  Tree Shaking.
+->  Compatible with older version of browsers bcz parcel uses browserlist as a dependency.
+->  File Watcher: To support an optimal caching and developement experience Parcel utilizes a very fast watcher written in 
+    C++ that integrates with low-level file watching functionality of each operating system. Using this watcher Parcel watches
+    every file in your project root. Based on events and metadata from these files, Parcel determines which files need to be
+    rebuilt.
+
+Q) What is .gitignore? Why should we use it?
+->  .gitignore is a file that you can create in git repository to tell Git which fields or directories to ignore when you make
+    a commit. This can be useful if you have files that you don't what to track, such as temporary files or build artifacts.
+->  Anything that can be autogenerated should be put in .gitignore. For ex: With the help of package.json we can generate node_modules
+    folder, thus it should be put in .gitignore.
+
+Q) Difference between package.json and package-lock.json?
+->  When we do npm init or npm i package.json is created. In package.json we have dependencies and devDependencies and all info about
+    project. When we install any package from npm i <package-name> - save. package-lock.json is created.
+->  In simple words in package.json dependencies will change to current version automatically because of caret sign but in package-lock.
+    json dependencies version will be locked it will not change. Version will be exactly be same of that version when project was created.
+->  package-lock.json purpose is to track the entire tree of dependencies (including dependencies of dependencies) and the exact version of 
+    each dependency.
+
+Q) What is node Module? Is it good idea to put it on git?
+->  A node_modules directories contains all the dependencies packages: react, react-dom, and their transitive dependencies like webpack,babel,
+    rxjs, ESLint, etc., to build and run a react project.
+->  We should never add node_modules folder to github as it is very heavy. We can generate this folder later as we have all dependencies in
+    package.
+
+
+Q) What is the 'dist' folder?
+->  When we bundle our app using parcel
+        [npx parcel index.html]
+->  A folder called dist will be generated. This is a directory that contains the final, compressed version of our project and this is the directory
+    we deploy to our production environment.
+->  The dist folder typically contains the HTML CSS and Js files that make up your project, as well as any assests such as images or fonts. These files
+    are generated by parcel from the source code and assests in your project, and they are optimisized for production use.
+
+Q) What are Browserlists?
+->  Browserlists is a configuration file that is used to specify which browsers and versions should be targeted by a project that is built using
+    tools like Autoprefixer, Babel and PostCSS.
+->  It is typically used to ensure that the project is Compatible with a specific set of browsers and to automatically add vendor to CSS rules or
+    polyfills to javascript code as needed.
+->  A browserlist file is typically a plain text file with a browserlist extension that is located in the root directory of a project.
+
+
+
